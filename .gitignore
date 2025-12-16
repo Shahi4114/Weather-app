@@ -7,3 +7,6 @@ node_modules/
 # Optional: OS or IDE files
 .DS_Store
 .vscode/
+
+# .gitignore
+key.env

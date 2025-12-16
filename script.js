@@ -1,3 +1,7 @@
+require('dotenv').config({ path: './key.env' });
+ 
+const API_KEY = process.env.OPENWEATHER_API_KEY;
+
 const cityInput=document.getElementById('cityInput');
 const suggestions=document.getElementById('suggestions');
 const search=document.getElementById('search');
@@ -93,7 +97,7 @@ cityInput.addEventListener("click", ()=>{
                 debounceTimeout =setTimeout(async () =>{
                 try{
                     const res= await fetch(
-                    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&limit=1&appid=82d6b9b46b1abe92bc521e96ec173d4d`
+                    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`
                     );
 
                     if(!res.ok) throw new Error(`Error error! status ${res.status}`);
@@ -135,7 +139,7 @@ cityInput.addEventListener("input", async() =>{
 
     try{
         
-        const res = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=82d6b9b46b1abe92bc521e96ec173d4d`);
+        const res = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${API_KEY}`);
 
         if(!res.ok) throw new Error(`Error error! status ${res.status}`);
        
@@ -191,7 +195,7 @@ search.addEventListener("click",async ()=>{
 async function fetchWeather(city){
     try{
         
-        const res= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=82d6b9b46b1abe92bc521e96ec173d4d&units=metric`);
+        const res= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
 
         if(!res.ok) throw new Error(`Failed to fetch weather: ${res.statusText}`);
 
@@ -352,7 +356,7 @@ async function displayWeather(data){
 /* function to fetch forcast weather */
 async function fetchForecast(lat,lon){
     try{
-        const res= await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=82d6b9b46b1abe92bc521e96ec173d4d&units=metric`);
+        const res= await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
 
         if(!res.ok) return new Error(`Failed to fetch forcast : ${res.statusText}`);
 
