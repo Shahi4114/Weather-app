@@ -93,7 +93,7 @@ Make sure to add your API keys in a .env file if required.
 
 ### 🌐 Screenshots
 
-image.png
+[](<Screenshot 2025-12-16 203830-1.png>)
 
 ### 📜 License
 This project is open-source and available under the MIT License.
