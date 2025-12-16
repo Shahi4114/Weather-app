@@ -1,0 +1,9 @@
+# Ignore node modules
+node_modules/
+
+# Ignore environment files
+.env
+
+# Optional: OS or IDE files
+.DS_Store
+.vscode/
