@@ -90,15 +90,9 @@ or open index.html directly in your browser.
 Make sure to add your API keys in a .env file if required.
 
 
-### 📝 Notes
-node_modules/ is ignored via .gitignore because it can be rebuilt using npm install.
-
-All generated files (from Tailwind CSS or build scripts) should also be ignored.
-
-Keep tailwind.config.js and source files tracked in Git so others can build the project.
 
 ### 🌐 Screenshots
-(Add screenshots here for portfolio or GitHub display)
+[App](image.png)
 
 ### 📜 License
 This project is open-source and available under the MIT License.
