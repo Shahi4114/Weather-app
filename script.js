@@ -1,5 +1,4 @@
-require('dotenv').config({ path: './key.env' });
- 
+// update API key to work on your server 
 const API_KEY = process.env.OPENWEATHER_API_KEY;
 
 const cityInput=document.getElementById('cityInput');

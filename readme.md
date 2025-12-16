@@ -92,7 +92,8 @@ Make sure to add your API keys in a .env file if required.
 
 
 ### 🌐 Screenshots
-[App](image.png)
+
+image.png
 
 ### 📜 License
 This project is open-source and available under the MIT License.
