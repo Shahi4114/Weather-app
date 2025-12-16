@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Weather App</title>
+  </head>
+<body>
+  <video muted autoplay loop playsinline class="absolute top-0 -z-10 transition-all left-0 right-0 min-h-screen max-h-screen w-full object-cover">
+        <source src="resources/sunnyday.mp4" type="video/mp4">
+      </video>
+
+
+
+
+    <div class="container relative  flex flex-col gap-10 md:gap-3 text-white/95  justify-center items-center p-6 min-h-screen md:mt-0 md: ">
+            
+      
+      <div id="loading" class="hidden inset-0 fixed  bg-black/50 flex items-center justify-center z-50">
+        <div class=" w-20 h-20 border-8 border-gray-200 border-t-gray-600 rounded-full animate-spin"></div>
+      </div>
+
+        <div class="search-container min-w-80  md:min-w-[30rem] min-h-fit  mt-1 md:mt-2 p-2 flex justify-center rounded-2xl">
+          <div class="input-suggetion w-full relative flex-1 ">
+            <input id="cityInput" autocomplete="off" placeholder="Search city" type="text" class="w-full  p-3 pl-6 md:pl-6 md:p-3 border-r-0 border border-white/10 bg-black/10 backdrop-blur-xl rounded-l-2xl outline-none placeholder:text-white/95 placeholder:font-semibold">
+              <ul id="suggestions"  class="absolute cursor-pointer text-black overflow-y-auto p-2 space-y-4 scrollbar-hide max-h-60 shadow-lg left-0   right-0 z-[99999] bg-white/95  rounded-lg  transition duration-150 active:ease-in-out hidden ">
+              </ul>
+          </div>
+          <div id="search" class="serach  border-white/10 bg-black/10 backdrop-blur-xl p-3 rounded-r-2xl border border-l-0 "  >
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+
+        <div class="main-conatiner  flex flex-wrap bg-black/10 backdrop-blur-xl border border-white/10 md:min-w-[30rem] max-w-80  min-h-fit  rounded-2xl gap-3 p-3 items-center justify-center">
+          
+          <div  class="icon-box  w-auto md:max-h-44 md:mt-[-1rem]">
+            <img id="weather-icon" src="resources/amcharts_weather_icons_1.0.0/animated/rainy-5.svg" class="size-44 md:size-56" alt="weather Icon">
+          </div>
+
+          
+
+          <div class="weather-num-place md:text-6xl md:text-center ">
+            <div id="weather-number" class="weather-number text-2xl font-bold  md:text-4xl flex items-center justify-center p-2">27 &deg;c</div>
+            <div id="weather-place" class="weather-place text-2xl font-bold md:text-2xl  md:h-fit p-2 flex items-center justify-center "></div>
+            </div>
+
+          <div class="wind-humidity md:gap-x-8 p-2 md:p-1 flex justify-end gap-x-3">
+            <div class="humidity-main flex">
+            
+                <i class="fa-solid fa-droplet text-2xl flex justify-center items-center md:text-2xl"></i>
+
+                <div class="text-2xl h-full md:flex md:items-center gap-2">
+                <span class="humidity text-xl md:text-base ">Humidity:</span>
+                <div id="humidity-nums" class="humidity-nums flex w-fit gap-1 justify-center items-center md:text-xl">17 <p class="text-xl">&percnt;</p></div>
+                </div> 
+              
+            </div>
+            <div class="wind-main flex">
+
+              <div class=" gap-2 flex flex-wrap justify-center items-center">
+                <i class="fa-solid fa-wind text-2xl flex justify-center items-center md:text-2xl"></i>
+                <div class="text-2xl h-full md:flex md:items-center gap-2">
+                <span class="wind text-xl md:text-base ">Wind:</span>
+                <div id="wind-nums" class="wind-nums flex w-fit gap-1 justify-center items-center md:text-xl">17 <p class="text-xl">km/h</p></div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="forecast bg-black/10 backdrop-blur-xl border border-white/10 min-w-80 md:min-w-[30rem] md:gap-7 min-h-fit md:min-h-32 rounded-2xl flex justify-center p-3 gap-1">
+            <div class="Monday flex flex-col p-2  md:pl-3 md:pr-3 items-center border border-white/10 rounded-lg">
+              <div id="day1-name" class="day-one text-xl">Mon</div>
+              <div  class="day-icon min-h-12">
+                <div  class="day-icon min-h-12">
+                <img id="day1-icon"  src="resources/amcharts_weather_icons_1.0.0/animated/rainy-5.svg" class="size-10 md:size-25" alt="weather Icon"></div></div>
+              <div id="day1-temp" class="day-weather">17 C</div>
+            </div>
+            <div class="Tuesday flex flex-col  p-2 md:pl-3 md:pr-3 items-center border border-white/10 rounded-lg">
+              <div id="day2-name" class="day-two text-xl">Tue</div>
+              <div  class="day-icon min-h-12">
+                <div class="day-icon min-h-12"><img id="day2-icon" src="resources/amcharts_weather_icons_1.0.0/animated/rainy-5.svg" class="size-10 md:size-" alt="weather Icon"></div></div>
+              <div id="day2-temp" class="day-weather">17 C</div>
+            </div>
+            <div class="Wednesday flex flex-col p-2 md:pl-3 md:pr-3 items-center border  border-white/10 rounded-lg">
+              <div id="day3-name" class="day-three text-xl">Wed</div>
+              <div  class="day-icon min-h-12">
+                <div class="day-icon min-h-12"><img id="day3-icon" src="resources/amcharts_weather_icons_1.0.0/animated/rainy-5.svg" class="size-10 md:size-25" alt="weather Icon"></div></div>
+              <div id="day3-temp" class="day-weather">17 C</div>
+            </div>
+            <div class="Thursday flex flex-col  p-2 md:pl-3 md:pr-3 items-center border border-white/10 rounded-lg">
+              <div id="day4-name" class="day-four text-xl">Thu</div>
+              <div  class="day-icon min-h-12">
+                <div class="day-icon min-h-12"><img id="day4-icon" src="resources/amcharts_weather_icons_1.0.0/animated/rainy-5.svg" class="size-10 md:size-25" alt="weather Icon"></div></div>
+              <div id="day4-temp" class="day-weather">17 C</div>
+            </div>
+            <div class="Friday flex flex-col p-2 md:pl-3 md:pr-3 items-center border border-white/10 rounded-lg">
+              <div id="day5-name" class="day-five text-xl">Fri</div>
+              <div  class="day-icon min-h-12">
+                <div class="day-icon min-h-12"><img id="day5-icon" src="resources/amcharts_weather_icons_1.0.0/animated/rainy-5.svg" class="size-10 md:size-25" alt="weather Icon"></div></div>
+              <div id="day5-temp" class="day-weather">17 C</div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <script type="module" src="/src/main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
